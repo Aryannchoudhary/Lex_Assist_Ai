@@ -1,0 +1,20 @@
+# Virtual Environments
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+.py[cod]
+
+# Secrets & Local Configs
+.env
+.lock
+CACHEDIR.TAG
+pyvenv.cfg
+
+# Large Datasets & Embeddings (Will break GitHub's 100MB limit)
+glove/
+ml_training/data/*.zip
+
+# Local Database Caches
+backend/app/chroma_db/

@@ -1,0 +1,8 @@
+# UI Framework
+streamlit==1.35.0
+
+# HTTP Client for Backend Communication
+requests==2.32.3
+
+# Optional: Improves Streamlit performance on Windows file systems
+watchdog==4.0.1

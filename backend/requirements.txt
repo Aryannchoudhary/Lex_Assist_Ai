@@ -1,0 +1,27 @@
+# Core Web Framework & Server
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+pydantic==2.7.4
+python-multipart==0.0.9
+pdfplumber
+scikit-learn
+
+# Document Parsing & AI Orchestration
+pdfplumber==0.11.1
+langchain==0.2.5
+langchain-community==0.2.5
+langchain-openai==0.1.9
+langchain-huggingface
+
+# Vector Database
+chromadb==0.5.3
+
+# Data Science & ML Inference Base
+numpy==1.26.4
+scikit-learn==1.5.0
+
+# NOTE: Uncomment the specific deep learning framework used 
+# to build and serialize your BiLSTM clause pipeline:
+torch>=2.4.0
+tensorflow==2.16.1
+keras

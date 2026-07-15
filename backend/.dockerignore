@@ -1,0 +1,3 @@
+__pycache__/
+app/chroma_db/
+*.pyc

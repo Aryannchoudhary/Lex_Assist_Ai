@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+    ports:
+      - "8000:8000"
+    container_name: lex-assist-backend
+
+  frontend:
+    build: 
+      context: ./frontend
+    ports:
+      - "8501:8501"
+    container_name: lex-assist-frontend
+    environment:
+      # This tells Streamlit to route traffic to the backend container!
+      - BACKEND_URL=http://lex-assist-backend:8000/api
+    depends_on:
+      - backend
