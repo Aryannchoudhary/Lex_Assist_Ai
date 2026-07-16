@@ -4,7 +4,7 @@ import os
 
 BACKEND_URL = os.getenv("BACKEND_URL", "http://lex-assist-backend:8000/api")
 
-# Configure the page layout (switched to 'centered' for a better reading experience without a sidebar)
+# Configure the page layout
 st.set_page_config(page_title="Lex-Assist AI", page_icon="⚖️", layout="centered")
 
 # Initialize session state variables
@@ -37,9 +37,12 @@ with st.expander("📄 Document Management & Upload", expanded=True):
                 st.session_state.chat_history = [] # Clear old chat
                 
                 st.success("Analysis Complete! You can now chat with the document below.")
+            
+            # --- FIXED: Restored the missing except block ---
             except requests.exceptions.RequestException as e:
                 st.error(f"Backend connection failed: {e}")
 
+    # --- FIXED: Removed the duplicate sections and simplified the metric ---
     # Display the ML Risk Analysis directly inside the expander if a document is loaded
     if st.session_state.analysis_results:
         st.divider()
@@ -77,10 +80,6 @@ else:
             message_placeholder = st.empty()
             with st.spinner("Consulting contract clauses..."):
                 try:
-                    # ---------------------------------------------------------
-                    # THE UPGRADE: Passing the chat history to the backend!
-                    # We use [:-1] to send all past messages EXCEPT the one the user just typed.
-                    # ---------------------------------------------------------
                     payload = {
                         "user_message": prompt,
                         "contract_id": st.session_state.contract_id,
