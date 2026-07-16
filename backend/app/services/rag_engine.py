@@ -9,7 +9,7 @@ class RAGEngine:
         self.client = InferenceClient(
             model="Qwen/Qwen2.5-7B-Instruct",
             # Make sure to put your NEW token here after revoking the old one!
-            token="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" 
+            token=os.getenv("HUGGINGFACEHUB_API_TOKEN") 
         )
 
     def generate_answer(self, query: str, retrieved_blocks: list[dict], history: list[dict] = None) -> str:
